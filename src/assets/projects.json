@@ -1,0 +1,15 @@
+[
+  {
+    "name": "ScanRig",
+    "year": 2020,
+    "img": "projects/scanRig/preview.png",
+    "description": "ScanRig is a tool built with AliceVision to achieve high-quality photogrammetry at low-budget. You place your object in the center, and 3 cameras will turn around and take pictures of it",
+    "article": "",
+    "links": {
+      "repo": "https://github.com/alicevision/ScanRig",
+      "website": "https://alicevision.org/",
+      "video": "https://vimeo.com/411076799"
+    },
+    "partners": ["Julien Haudegond", "Mélissande Gaillot", "Guillaume Haerinck"]
+  }
+]
