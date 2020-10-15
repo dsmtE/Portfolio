@@ -3,7 +3,9 @@
     <CircleCursor/>
     <q-page-container id="pageContainer">
       <NavBar :items="items" />
-      <router-view />
+      <transition name="fade" mode="out-in">
+        <router-view/>
+      </transition>
     </q-page-container>
   </q-layout>
 </template>
@@ -37,6 +39,14 @@ export default {
 
   #pageContainer {
     cursor: none;
+  }
+
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+  }
+
+  .fade-enter, .fade-leave-to {
+    opacity: 0;
   }
 
 </style>
