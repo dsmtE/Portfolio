@@ -1,11 +1,9 @@
 <template>
-
 <q-layout view="hHh lpR fFf">
-
-    <q-page-container>
+    <CircleCursor/>
+    <q-page-container id="pageContainer">
       <router-view />
     </q-page-container>
-
   </q-layout>
 </template>
 
@@ -14,6 +12,7 @@
 export default {
   name: 'MainLayout',
   components: {
+    CircleCursor: () => import('components/CircleCursor.vue'),
   },
   data() {
     return {
@@ -21,3 +20,11 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+
+  #pageContainer {
+    cursor: none;
+  }
+
+</style>
