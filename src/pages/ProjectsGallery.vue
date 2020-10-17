@@ -1,11 +1,11 @@
 <template>
   <div>
     <h1 class="q-mb-xl text-center" :style="{'margin-top': `${5}%`, 'margin-bottom': `${5}%`}">
-      Projects
+      {{ $t('projects') }}
     </h1>
     <div class="flex flex-center justify-center">
       <Filtering class="filtering q-pa-sm q-mb-xl"
-      title="Catégories" :items="filteringTags" v-model="selectedTags"/>
+      :title="$t('categories')" :items="filteringTags" v-model="selectedTags"/>
         <transition-group class="row content-center projectsTiles" name="projectsList"
           tag="div" :style="{width: tilesWidth}">
           <!-- <ProjectTile class="col-12 col-md-6" v-for="project in projects"
@@ -41,6 +41,18 @@ export default {
     };
   },
   mounted() {
+  },
+  i18n: {
+    messages: {
+      'en-us': {
+        categories: 'Categories',
+        projects: 'Projects',
+      },
+      fr: {
+        categories: 'Catégories',
+        projects: 'Projets',
+      },
+    },
   },
 };
 </script>
