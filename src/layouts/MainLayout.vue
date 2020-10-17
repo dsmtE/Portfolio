@@ -1,6 +1,7 @@
 <template>
 <q-layout view="hHh lpR fFf">
     <CircleCursor/>
+    <LanguageSwitcher id="languageSwitcher" class="q-ma-sm"/>
     <q-page-container id="pageContainer">
       <NavBar :items="items" />
       <transition name="fade" mode="out-in">
@@ -17,6 +18,7 @@ export default {
   components: {
     NavBar: () => import('components/NavBar.vue'),
     CircleCursor: () => import('components/CircleCursor.vue'),
+    LanguageSwitcher: () => import('components/LanguageSwitcher.vue'),
   },
   data() {
     return {
@@ -39,6 +41,13 @@ export default {
 
   #pageContainer {
     cursor: none;
+  }
+
+  #languageSwitcher {
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
   }
 
   .fade-enter-active, .fade-leave-active {

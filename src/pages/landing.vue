@@ -15,7 +15,6 @@
           </q-card-section>
         </q-card>
         <SocialsLinks id="socials" class="q-mr-sm" :items="socials"/>
-        <LanguageSwitcher id="languageSwitcher" class="q-ma-sm"/>
       </div>
     </div>
   </q-page>
@@ -26,7 +25,6 @@ export default {
   name: 'Landing',
   components: {
     SocialsLinks: () => import('components/SocialsLinks.vue'),
-    LanguageSwitcher: () => import('components/LanguageSwitcher.vue'),
   },
   data() {
     return {
@@ -55,13 +53,6 @@ export default {
   position: absolute;
   z-index: 10;
   right: 0;
-}
-
-#languageSwitcher {
-  position: absolute;
-  z-index: 10;
-  left: 0;
-  top: 0;
 }
 
 #description {
