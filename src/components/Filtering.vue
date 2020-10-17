@@ -5,14 +5,14 @@
       </h5>
       <q-separator spaced="sm" size="2px"/>
       <div class="row q-gutter-md">
-        <q-btn v-for="(state, item) in itemsStates" :key="item"
-          unelevated class="col col-md-2 link flex flex-center"
+        <q-chip v-for="(state, item) in itemsStates" :key="item"
+          class="col-auto link flex flex-center" square
           :text-color="state ? 'white' : 'black'"
           :color="state ? 'black' : 'white'"
           :icon="state ? 'done' : 'remove'"
-          @click="changeState(item)">
+          clickable @click="changeState(item)">
             {{ item }}
-        </q-btn>
+        </q-chip>
       </div>
   </div>
 </template>
