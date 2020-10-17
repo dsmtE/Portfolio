@@ -2,9 +2,9 @@
   <dir class="nav row justify-end q-gutter-lg q-mr-xl" :style="{height: `${navHeight}px`}"
    @mouseover="hover = true" @mouseleave="hover = false">
     <router-link tag="div" class="flex flex-center justify-center"
-      v-slot="{ href, navigate, isActive }"
+      v-slot="{ href, navigate, isExactActive  }"
       v-for="(item, id) in items" :key="id" :to="item.to">
-      <div class="link" :style="isActive ? linksActiveStyle : linksStyle"
+      <div class="link" :style="isExactActive  ? linksActiveStyle : linksStyle"
       :href="href" @click="navigate">
         {{ item.label }}
       </div>
@@ -70,8 +70,5 @@ export default {
     color: white;
     // cursor: pointer;
     transform-origin: top;
-    transform: translate(0, 0);
-
-    // transition: height 0.4s ease;
   }
 </style>
