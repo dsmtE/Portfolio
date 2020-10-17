@@ -21,7 +21,7 @@ export default {
     },
     outsideColor: {
       type: String,
-      default: null,
+      default: '#33333311',
     },
     colorHover: {
       type: String,
@@ -31,10 +31,6 @@ export default {
       type: String,
       default: '#333',
     },
-    borderSize: {
-      type: Number,
-      default: 1,
-    },
     outsideSize: {
       type: Number,
       default: 60,
@@ -43,9 +39,13 @@ export default {
       type: Number,
       default: 5,
     },
-    delay: {
+    insideDelay: {
       type: Number,
-      default: 0.1,
+      default: 0.15,
+    },
+    outsideDelay: {
+      type: Number,
+      default: 0.25,
     },
     showOutside: {
       type: Boolean,
@@ -81,7 +81,7 @@ export default {
         width: `${this.insideSize}px`,
         height: `${this.insideSize}px`,
         transform: `translate(${this.cursorPos.x - this.insideSize / 2}px, ${this.cursorPos.y - this.insideSize / 2}px) scale(${this.scaleHoverFactor})`,
-        transition: `transform ${this.delay}s`,
+        transition: `transform ${this.insideDelay}s ease-out`,
         'background-color': this.insideColor,
       };
     },
@@ -90,8 +90,7 @@ export default {
         width: `${this.outsideSize}px`,
         height: `${this.outsideSize}px`,
         transform: `translate(${this.cursorPos.x - this.outsideSize / 2}px, ${this.cursorPos.y - this.outsideSize / 2}px) scale(${this.scaleHoverFactor})`,
-        border: `${this.borderSize}px solid ${this.borderColor}`,
-        transition: `transform ${this.delay}s`,
+        transition: `transform ${this.outsideDelay}s ease-out`,
         'background-color': this.outsideColor,
       };
     },
@@ -114,7 +113,7 @@ export default {
     },
   },
   mounted() {
-    window.addEventListener('mousemove', throttle(this.update, 30));
+    window.addEventListener('mousemove', throttle(this.update, 20));
   },
 };
 </script>
