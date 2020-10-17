@@ -1,6 +1,6 @@
 <template>
-  <q-card class="col-12 col-md-2">
-    <q-img :src="data.img" basic>
+  <q-card square flat class="col-12 col-md-2">
+    <q-img :src="data.img" basic :ratio="1">
       <div class="absolute-bottom text-subtitle2 text-center">
        {{ data.name }}
       </div>
