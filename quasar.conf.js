@@ -72,6 +72,13 @@ module.exports = function (/* ctx */) {
           loader: 'eslint-loader',
           exclude: /node_modules/,
         });
+
+        cfg.module.rules.push({
+          enforce: 'pre',
+          test: /\.(glsl|vs|fs|vert|frag)$/,
+          loader: 'raw-loader',
+          exclude: /node_modules/,
+        });
       },
     },
 
