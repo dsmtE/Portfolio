@@ -5,7 +5,7 @@
     </h1>
     <div class="flex flex-center justify-center">
       <Filtering class="filtering q-pa-sm q-mb-xl"
-      :title="$t('categories')" :items="filteringTags" v-model="selectedTags"/>
+      :title="$t('categories')" :items="availableTags" v-model="selectedTags"/>
         <transition-group class="row content-center projectsTiles" name="projectsList"
           tag="div" :style="{width: tilesWidth}">
           <!-- <ProjectTile class="col-12 col-md-6" v-for="project in projects"
@@ -19,7 +19,7 @@
 
 <script>
 
-import projects from 'assets/projects.json';
+import projectsJson from 'assets/projects.json';
 
 export default {
   name: 'ProjectsGallery',
@@ -29,16 +29,16 @@ export default {
   },
   data() {
     return {
-      projects,
+      projects: projectsJson.projects,
       tilesWidth: '70%',
-      filteringTags: [
-        '01',
-        '02',
-        '03',
-        '04',
-      ],
+      availableTags: projectsJson.tags,
       selectedTags: [],
     };
+  },
+  computed: {
+    filteredProjects() {
+      return this.projects.filter(p => p.tags.every(t => this.selectedTags.includes(t)));
+    },
   },
   mounted() {
   },
