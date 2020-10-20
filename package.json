@@ -15,6 +15,7 @@
   "dependencies": {
     "@quasar/extras": "^1.0.0",
     "core-js": "^3.6.5",
+    "curtainsjs": "^7.1.1",
     "quasar": "^1.0.0",
     "vue-i18n": "^8.0.0"
   },
@@ -25,7 +26,8 @@
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-loader": "^3.0.3",
     "eslint-plugin-import": "^2.20.1",
-    "eslint-plugin-vue": "^6.1.2"
+    "eslint-plugin-vue": "^6.1.2",
+    "raw-loader": "^4.0.2"
   },
   "browserslist": [
     "last 10 Chrome versions",
