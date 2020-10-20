@@ -1,6 +1,12 @@
 <template>
-  <q-page >
+  <q-page>
+    <CurtainsWrapper :planes="[this.curtainCanvas]"/>
+    <div id="curtainPlane" ref="curtainPlane">
+      <canvas id="curtainCanvas" ref="curtainCanvas" data-sampler="uCanvas"></canvas>
+    </div>
+
     <div class="fullHeight flex flex-center">
+      <SocialsLinks id="socials" class="q-mr-sm" :items="socials"/>
       <div class="column content-center">
         <div class="col">
           <h2 class="q-mt-none q-mb-sm text-center">Enguerrand DE SMET</h2>
@@ -10,24 +16,30 @@
         </div>
 
         <q-card id="description" class="q-mt-xl q-pa-md">
-          <q-card-section >
+          <q-card-section>
             <p class="q-ma-none text-h5 test-weight-medium"> {{ $t('landingDescription') }} </p>
           </q-card-section>
         </q-card>
-        <SocialsLinks id="socials" class="q-mr-sm" :items="socials"/>
+
       </div>
     </div>
   </q-page>
 </template>
 
 <script>
+
+import fs from 'assets/shaders/landing.fs';
+import vs from 'assets/shaders/landing.vs';
+
 export default {
   name: 'Landing',
   components: {
     SocialsLinks: () => import('components/SocialsLinks.vue'),
+    CurtainsWrapper: () => import('components/CurtainsWrapper.vue'),
   },
   data() {
     return {
+      curtainCanvas: {},
       socials: [
         {
           icon: 'fab fa-linkedin',
@@ -44,6 +56,14 @@ export default {
       ],
     };
   },
+  mounted() {
+    this.curtainCanvas = {
+      DOMElement: this.$refs.curtainPlane,
+      fs,
+      vs,
+      uniforms: ['time', 'mousePosition'],
+    };
+  },
 };
 </script>
 
@@ -51,12 +71,23 @@ export default {
 
 #socials {
   position: absolute;
-  z-index: 10;
   right: 0;
 }
 
 #description {
   max-width: 50em;
+}
+
+#curtainPlane {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+#curtainPlane canvas {
+  display: none;
 }
 
 </style>
