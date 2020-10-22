@@ -11,7 +11,7 @@
           <!-- <ProjectTile class="col-12 col-md-6" v-for="project in projects"
           :key="project.name" :data="project" />-->
           <ProjectTile class="col-12 col-md-6" v-for="i in 10"
-          :key="i" :data="projects[0]" />
+          :key="i" :infos="projects[0]"/>
         </transition-group>
     </div>
   </div>
@@ -61,6 +61,6 @@ export default {
 
 .filtering {
   // border: 1px solid #eee;
-  // border-radius: 10px;
+  border-radius: 10px;
 }
 </style>
