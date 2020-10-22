@@ -1,6 +1,6 @@
 <template>
   <q-page>
-    <CurtainsWrapper :planes="[this.curtainCanvas]"/>
+    <CurtainsWrapper v-if="this.curtainCanvas" :planes="[this.curtainCanvas]"/>
     <div id="curtainPlane" ref="curtainPlane">
       <canvas id="curtainCanvas" ref="curtainCanvas" data-sampler="uCanvas"></canvas>
     </div>
@@ -39,7 +39,7 @@ export default {
   },
   data() {
     return {
-      curtainCanvas: {},
+      curtainCanvas: undefined,
       socials: [
         {
           icon: 'fab fa-linkedin',
