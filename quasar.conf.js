@@ -8,6 +8,7 @@
 /* eslint-env node */
 /* eslint func-names: 0 */
 /* eslint global-require: 0 */
+let path = require('path');
 
 module.exports = function (/* ctx */) {
   return {
@@ -79,6 +80,13 @@ module.exports = function (/* ctx */) {
           loader: 'raw-loader',
           exclude: /node_modules/,
         });
+
+        cfg.resolve.alias = {
+          ...cfg.resolve.alias,
+          '@components': path.resolve(__dirname, './src/components'),
+          '@js': path.resolve(__dirname, './src/js'),
+        };
+
       },
     },
 
